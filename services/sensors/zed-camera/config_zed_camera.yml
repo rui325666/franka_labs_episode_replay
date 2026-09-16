@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+    device_id: -1
+    expected_serial_number: 0
+    resolution: HD720
+    fps: 30
+    eye: left
+    publish_topic: /head_camera/zed_node/rgb/color/rect/image
+    frame_id: head_camera_left_optical_frame

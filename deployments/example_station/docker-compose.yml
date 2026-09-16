@@ -1,0 +1,102 @@
+# Minimal replay services. See README.md before using a different robot.
+services:
+  franka-robot:
+    image: registry.localhost/labs/franka-robot:latest
+    container_name: franka-robot
+    network_mode: host
+    restart: unless-stopped
+    stop_signal: SIGINT
+    privileged: true
+    ipc: host
+    pid: host
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./config_franka_robot.yml:/workspace/config_franka_robot.yml
+    - ./cyclonedds.xml:/workspace/cyclonedds.xml:ro
+    environment:
+      LOG_LEVEL: INFO
+      ROS_DOMAIN_ID: 0
+      RMW_IMPLEMENTATION: rmw_cyclonedds_cpp
+      CYCLONEDDS_URI: file:///workspace/cyclonedds.xml
+      PATH: /opt/openrobots/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      PKG_CONFIG_PATH: /opt/openrobots/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig
+      LD_LIBRARY_PATH: /opt/openrobots/lib:/usr/local/lib:/usr/lib
+      PYTHONPATH: /opt/openrobots/lib/python3.10/site-packages:/usr/local/lib/python3.10/site-packages
+      CMAKE_PREFIX_PATH: /opt/openrobots:/usr/local
+      COLLISION_SCALE: '1.5'
+      CONTROLLER_TYPE: ${CONTROLLER_TYPE:-joint}
+    cap_add:
+    - SYS_NICE
+    ulimits:
+      rtprio: 99
+      rttime: -1
+      memlock: 8428281856
+    pull_policy: never
+  robotiq-gripper:
+    image: registry.localhost/labs/robotiq-gripper:latest
+    container_name: robotiq-gripper
+    network_mode: host
+    restart: unless-stopped
+    stop_signal: SIGINT
+    privileged: true
+    ipc: host
+    pid: host
+    stdin_open: true
+    tty: true
+    volumes:
+    - /dev:/dev
+    - ./config_robotiq_gripper.yml:/workspace/config_robotiq_gripper.yml
+    - ./cyclonedds.xml:/workspace/cyclonedds.xml:ro
+    environment:
+      LOG_LEVEL: INFO
+      ROS_DOMAIN_ID: 0
+      RMW_IMPLEMENTATION: rmw_cyclonedds_cpp
+      CYCLONEDDS_URI: file:///workspace/cyclonedds.xml
+      FAKE_HARDWARE: false
+    pull_policy: never
+  controller-coordinator:
+    image: registry.localhost/labs/controller-coordinator:latest
+    container_name: controller-coordinator
+    network_mode: host
+    restart: unless-stopped
+    stop_signal: SIGINT
+    privileged: true
+    ipc: host
+    pid: host
+    shm_size: 1gb
+    stdin_open: true
+    tty: true
+    volumes:
+    - /dev:/dev
+    - /etc/localtime:/etc/localtime:ro
+    - ./config_controller_coordinator.yml:/workspace/config_controller_coordinator.yml
+    - ./cyclonedds.xml:/workspace/cyclonedds.xml:ro
+    environment:
+      LOG_LEVEL: INFO
+      ROS_DOMAIN_ID: 0
+      RMW_IMPLEMENTATION: rmw_cyclonedds_cpp
+      CYCLONEDDS_URI: file:///workspace/cyclonedds.xml
+    pull_policy: never
+  zed-camera-head:
+    image: registry.localhost/labs/zed-camera:latest
+    container_name: zed-camera-head
+    network_mode: host
+    restart: unless-stopped
+    stop_signal: SIGINT
+    privileged: true
+    ipc: host
+    pid: host
+    stdin_open: true
+    tty: true
+    environment:
+      LOG_LEVEL: INFO
+      ROS_DOMAIN_ID: 0
+      RMW_IMPLEMENTATION: rmw_cyclonedds_cpp
+      CYCLONEDDS_URI: file:///workspace/cyclonedds.xml
+    volumes:
+    - /dev:/dev
+    - /etc/localtime:/etc/localtime:ro
+    - ./cyclonedds.xml:/workspace/cyclonedds.xml:ro
+    - ./config_zed_camera.yml:/workspace/config_zed_camera.yml:ro
+    pull_policy: never

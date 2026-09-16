@@ -1,0 +1,51 @@
+[
+  {
+    "Id": "sha256:8017b59105a75cb63d0d527bde212769a70afca8ee2c48f562802374e3fa7923",
+    "RepoTags": [
+      "registry.localhost/labs/franka-robot:latest",
+      "registry.localhost/labs/franka-robot:tilt-8017b59105a75cb6"
+    ],
+    "Os": "linux",
+    "Architecture": "amd64",
+    "Size": 1419029246
+  },
+  {
+    "Id": "sha256:c6e1edf74e19f2933b2207db9003c54a6aaeb3fb24632fa9832792383fa814b3",
+    "RepoTags": [
+      "registry.localhost/labs/robotiq-gripper:latest",
+      "registry.localhost/labs/robotiq-gripper:tilt-c6e1edf74e19f293"
+    ],
+    "Os": "linux",
+    "Architecture": "amd64",
+    "Size": 737823119
+  },
+  {
+    "Id": "sha256:416c764b0114644e02088349b4247535ccce3bb8ef77df3458d56d74b020c321",
+    "RepoTags": [
+      "registry.localhost/labs/controller-coordinator:latest",
+      "registry.localhost/labs/controller-coordinator:tilt-416c764b0114644e"
+    ],
+    "Os": "linux",
+    "Architecture": "amd64",
+    "Size": 488844796
+  },
+  {
+    "Id": "sha256:3c6f19a14dc3b9d253021bd3d4404d763a83ce8369929f6cd3d989ad1030c501",
+    "RepoTags": [
+      "registry.localhost/labs/zed-camera:latest",
+      "registry.localhost/labs/zed-camera:tilt-3c6f19a14dc3b9d2"
+    ],
+    "Os": "linux",
+    "Architecture": "amd64",
+    "Size": 633714155
+  },
+  {
+    "Id": "sha256:e0b173be3618ac75c38cefe9fa123fe8020ec79116fd670490f1723aa447ebbb",
+    "RepoTags": [
+      "registry.localhost/labs/replay-gui:latest"
+    ],
+    "Os": "linux",
+    "Architecture": "amd64",
+    "Size": 724899553
+  }
+]

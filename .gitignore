@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store
+*.tar
+*.tar.gz
+*.zip
+*.partial
+offline-images*/
+data/datasets/lerobot/
+data/datasets/replay/*/trace_*.csv
+data/datasets/replay/*/home_*.csv
+data/datasets/replay/*/gripper_check_*.json
+data/datasets/replay/*/calibration/
+*.log

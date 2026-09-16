@@ -1,0 +1,19 @@
+Franka LABS episode replay distribution
+
+This package contains selected service code and configurations derived from
+Franka Robotics LABS (https://github.com/frankarobotics/labs), source base
+8e3cb513de407a4d265e4e1a79133d56b3a7ffd9, with local replay and CPU camera changes.
+The upstream LABS Apache-2.0 license is provided in LICENSE.
+
+The live scene overlay is adapted from the local_live_overlay.py tool used
+in the Camelo EBIM workspace (Apache-2.0) on 2026-09-10.
+
+Vendored service dependencies retain their own LICENSE/NOTICE files:
+- franka_follower_controllers: e039b3ac30437ed0d772133810e68d27140b20a1
+  https://github.com/frankarobotics/franka_follower_controllers
+- gello_software (Robotiq service): b6d977dc09c6d6d8b080cb04aface1260d30db48
+  https://github.com/wuphilipp/gello_software
+
+Docker builds obtain additional dependencies under their respective licenses,
+including ROS, franka_ros2/libfranka, ros2_robotiq_gripper and zed-open-capture.
+This distribution does not change those licenses or confer trademark rights.
