@@ -10,6 +10,7 @@
 
 ## 推荐交付内容
 
+- 已发布的镜像仓库：[franka_replay_offline_20260916](https://github.com/rui325666/franka_replay_offline_20260916)。完整归档从 [Releases 下载页](https://github.com/rui325666/franka_replay_offline_20260916/releases/tag/v2026.09.16) 获取；也可使用镜像仓库的 `download.sh` 断点续传并校验。
 - 仓库源码：GitHub 克隆或 ZIP 下载。
 - 镜像目录：五个 `.tar.gz`、`images.json` 和 `SHA256SUMS`，单独传输。
 - 接收方自己的硬件配置：机器人 IP、串口、相机序列号和本机 DDS 网卡地址。

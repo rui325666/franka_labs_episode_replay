@@ -47,6 +47,8 @@ cd franka_labs_episode_replay
 
 **方法 A：导入维护者提供的离线镜像包，适合下载依赖不稳定的网络。**
 
+配套镜像仓库：[franka_replay_offline_20260916](https://github.com/rui325666/franka_replay_offline_20260916)。优先从其 [Releases 下载页](https://github.com/rui325666/franka_replay_offline_20260916/releases/tag/v2026.09.16) 下载五个 `.tar.gz`、`images.json`、`SHA256SUMS`，共七个文件，放进同一个目录；总大小约 3.97 GB（3.7 GiB）。镜像仓库的普通源码 ZIP 可能仅包含 LFS 指针，不能代替完整镜像附件。
+
 拿到完整镜像目录后运行（替换为自己的目录）：
 
 ```bash
